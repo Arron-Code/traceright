@@ -1,4 +1,6 @@
 import "dotenv/config";
+// Vercel's Fastify detector requires a direct framework import in the entrypoint.
+import "fastify";
 import { mkdir } from "node:fs/promises";
 import { buildApp } from "./application.js";
 import { loadConfig } from "./config.js";
