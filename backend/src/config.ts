@@ -8,7 +8,7 @@ const booleanString = z
 
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  HOST: z.string().default("127.0.0.1"),
+  HOST: z.string().default("0.0.0.0"),
   PORT: z.coerce.number().int().min(1).max(65535).default(4300),
   DATABASE_URL: z.string().min(1),
   DATABASE_SSL: booleanString,
@@ -39,7 +39,12 @@ export type AppConfig = Omit<z.infer<typeof schema>, "STORAGE_DIR"> & {
 };
 
 export function loadConfig(environment: NodeJS.ProcessEnv = process.env): AppConfig {
-  const parsed = schema.parse(environment);
+  const parsed = schema.parse({
+    ...environment,
+    STORAGE_DIR:
+      environment.STORAGE_DIR ??
+      (environment.VERCEL === "1" ? "/tmp/sctracker-storage" : undefined),
+  });
   return {
     ...parsed,
     PUBLIC_BASE_URL: parsed.PUBLIC_BASE_URL.replace(/\/+$/, ""),

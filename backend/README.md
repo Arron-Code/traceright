@@ -35,6 +35,24 @@ into `DATABASE_URL` in the local `.env`; never commit that value. The initial
 system administrator is `arron.johannes@googlemail.com`. Its generated initial
 password is stored only in the ignored local `.bootstrap-admin-password` file.
 
+## Vercel deployment
+
+Configure the Vercel project with `backend` as its root directory and the Fastify
+framework preset. The production environment requires:
+
+- `DATABASE_URL`: pooled Neon connection string for `sctracker_asteros`
+- `DATABASE_SSL=true`
+- `JWT_SECRET`: random value of at least 32 characters
+- `CONFIG_ENCRYPTION_KEY`: random 32-byte value encoded as base64
+- `PUBLIC_BASE_URL`: public HTTPS URL of the backend
+- `ADMIN_ORIGIN`: public HTTPS origin allowed to use the administration SPA
+- `NODE_ENV=production`
+
+Vercel supplies `PORT` automatically. The server binds to all interfaces and uses
+`/tmp/sctracker-storage` when `STORAGE_DIR` is not set. Vercel's local filesystem
+is ephemeral, so document and evidence files require durable object storage before
+using those workflows in production.
+
 ## Authentication and authorization
 
 - Passwords use Argon2id (64 MiB, 3 iterations).
