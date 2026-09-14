@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { mkdir } from "node:fs/promises";
-import { buildApp } from "./app.js";
+import { buildApp } from "./application.js";
 import { loadConfig } from "./config.js";
 import { createPool } from "./db.js";
 

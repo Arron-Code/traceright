@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { randomBytes } from "node:crypto";
 import test from "node:test";
 import type { Pool, PoolClient, QueryResult } from "pg";
-import { buildApp } from "../src/app.js";
+import { buildApp } from "../src/application.js";
 import {
   assertOrganizationHeader,
   organizationSelection,
