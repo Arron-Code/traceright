@@ -1,0 +1,8 @@
+node_modules/
+__pycache__/
+*.pyc
+backend/.env
+backend/dist/
+backend/node_modules/
+backend/storage/
+asteros/

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCTracker Administration</title>
+    <link rel="stylesheet" href="/admin/styles.css">
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">SCTracker</span>
+        <h1>Mandantenverwaltung</h1>
+      </div>
+      <button id="logout" class="secondary hidden">Abmelden</button>
+    </header>
+
+    <main>
+      <section id="login-panel" class="card narrow">
+        <h2>Anmelden</h2>
+        <form id="login-form">
+          <label>E-Mail<input name="email" type="email" autocomplete="username" required></label>
+          <label>Passwort<input name="password" type="password" autocomplete="current-password" required></label>
+          <label>Organisations-Slug <input name="organizationSlug" placeholder="nur für Organisationskonten"></label>
+          <button type="submit">Anmelden</button>
+        </form>
+      </section>
+
+      <div id="workspace" class="hidden">
+        <aside class="card">
+          <h2>Organisationen</h2>
+          <form id="organization-form" class="system-only">
+            <label>Name<input name="name" required></label>
+            <label>Slug<input name="slug" pattern="[a-z0-9][a-z0-9-]{1,62}" required></label>
+            <button type="submit">Organisation anlegen</button>
+          </form>
+          <label>Aktive Organisation
+            <select id="organization-select"></select>
+          </label>
+          <form id="organization-edit-form" class="system-only">
+            <label>Name<input name="name" required></label>
+            <label class="checkbox"><input name="active" type="checkbox"> Aktiv</label>
+            <button type="submit">Organisation speichern</button>
+          </form>
+        </aside>
+
+        <section class="content">
+          <nav class="tabs" aria-label="Administration">
+            <button data-tab="users" class="active">Benutzer</button>
+            <button data-tab="config">API / EU</button>
+            <button data-tab="geofences">Geofences</button>
+            <button data-tab="reviews">Freigaben</button>
+            <button data-tab="reconciliation">DDS-Reconciliation</button>
+            <button data-tab="audit">Audit</button>
+          </nav>
+
+          <section id="tab-users" class="card tab-panel">
+            <h2>Benutzer und Rollen</h2>
+            <form id="user-form" class="form-grid admin-only">
+              <label>E-Mail<input name="email" type="email" required></label>
+              <label>Anzeigename<input name="displayName" required></label>
+              <label>Initialpasswort<input name="password" type="password" minlength="12" required></label>
+              <label>Rolle
+                <select name="role">
+                  <option value="org_admin">Org-Admin</option>
+                  <option value="reviewer">Reviewer</option>
+                  <option value="field_agent">Field Agent</option>
+                  <option value="auditor">Auditor</option>
+                </select>
+              </label>
+              <button type="submit">Benutzer anlegen</button>
+            </form>
+            <div id="users"></div>
+          </section>
+
+          <section id="tab-config" class="card tab-panel hidden">
+            <h2>API- und EU-EUDR-V3-Konfiguration</h2>
+            <p class="hint">Leere Secret-Felder behalten den vorhandenen Wert. „Löschen“ entfernt ihn.</p>
+            <form id="config-form" class="form-grid admin-only">
+              <label class="checkbox"><input name="satelliteEnabled" type="checkbox"> Satellitenanalyse aktiv</label>
+              <label>Satelliten-API-Endpunkt<input name="satelliteEndpoint" type="url" placeholder="https://..."></label>
+              <label>Satelliten-API-Schlüssel<input name="satelliteApiKey" type="password" autocomplete="new-password"></label>
+              <label class="checkbox"><input name="clearSatelliteApiKey" type="checkbox"> Satelliten-API-Schlüssel löschen</label>
+              <label class="checkbox"><input name="evidencePackEnabled" type="checkbox"> Evidence Packs aktiv</label>
+              <label>EU-Modus
+                <select name="mode"><option value="mock">Sicherer Mock</option><option value="live">Live</option></select>
+              </label>
+              <label>SOAP-Endpunkt<input name="endpoint" type="url" placeholder="https://..."></label>
+              <label>Timeout (ms)<input name="timeoutMs" type="number" min="1000" max="60000" value="15000"></label>
+              <label>Benutzername<input name="username" autocomplete="off"></label>
+              <label>Passwort<input name="euPassword" type="password" autocomplete="new-password"></label>
+              <label>Client-ID<input name="clientId" autocomplete="off"></label>
+              <label class="checkbox"><input name="clearUsername" type="checkbox"> Benutzername löschen</label>
+              <label class="checkbox"><input name="clearPassword" type="checkbox"> Passwort löschen</label>
+              <label class="checkbox"><input name="clearClientId" type="checkbox"> Client-ID löschen</label>
+              <button type="submit">Konfiguration speichern</button>
+            </form>
+          </section>
+
+          <section id="tab-geofences" class="card tab-panel hidden">
+            <h2>Mandantenbezogene Geofences</h2>
+            <form id="geofence-form" class="admin-only">
+              <label>Name<input name="name" required></label>
+              <label>GeoJSON Polygon
+                <textarea name="polygon" rows="8" required>{"type":"Polygon","coordinates":[[[8,50],[9,50],[9,51],[8,51],[8,50]]]}</textarea>
+              </label>
+              <button type="submit">Geofence anlegen</button>
+            </form>
+            <div id="geofences"></div>
+          </section>
+
+          <section id="tab-reviews" class="card tab-panel hidden">
+            <h2>Review-Freigaben</h2>
+            <div id="reviews"></div>
+          </section>
+
+          <section id="tab-reconciliation" class="card tab-panel hidden">
+            <h2>DDS-Reconciliation</h2>
+            <p class="hint">Nur nach externer Prüfung entscheiden. Laufende Vorgänge können frühestens nach zwei Minuten aufgelöst werden.</p>
+            <div id="reconciliation"></div>
+          </section>
+
+          <section id="tab-audit" class="card tab-panel hidden">
+            <h2>Audit-Log</h2>
+            <div id="audit"></div>
+          </section>
+        </section>
+      </div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </main>
+    <script type="module" src="/admin/app.js"></script>
+  </body>
+</html>

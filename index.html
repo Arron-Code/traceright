@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SCTracker - kaffeefokussierte EUDR-Traceability vom Plot bis zur DDS"
+      data-i18n-content="meta.description"
+    />
+    <title>SCTracker | Coffee Evidence</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="SCTracker Startseite" data-i18n-aria-label="aria.home">
+          <span class="brand-mark">SC</span>
+          <span>
+            <strong>SCTracker</strong>
+            <small>Coffee Evidence</small>
+          </span>
+        </a>
+
+        <nav aria-label="Hauptnavigation" data-i18n-aria-label="aria.navigation">
+          <a class="nav-link active" href="#overview" data-view="overview">
+            <span>01</span><span data-i18n="nav.overview">Überblick</span>
+          </a>
+          <a class="nav-link" href="#suppliers" data-view="suppliers">
+            <span>02</span><span data-i18n="nav.suppliers">Lieferanten</span>
+          </a>
+          <a class="nav-link" href="#plots" data-view="plots">
+            <span>03</span><span data-i18n="nav.plots">Parzellen</span>
+          </a>
+          <a class="nav-link" href="#shipments" data-view="shipments">
+            <span>04</span><span data-i18n="nav.shipments">Sendungen</span>
+          </a>
+          <a class="nav-link" href="#risk" data-view="risk">
+            <span>05</span><span data-i18n="nav.risk">Risiko & Evidenz</span>
+          </a>
+          <a class="nav-link" href="#dds" data-view="dds">
+            <span>06</span><span data-i18n="nav.dds">DDS</span>
+          </a>
+          <a class="nav-link" href="#guide" data-view="guide">
+            <span>07</span><span data-i18n="nav.guide">Anleitung</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="status-dot"></span>
+          <div>
+            <strong data-i18n="sidebar.prototype">Prototyp</strong>
+            <small data-i18n="sidebar.scope">Nur Kaffee · Demo-Daten</small>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-i18n="header.operations">EUDR-ARBEITSBEREICH</p>
+            <h1 id="page-title">Compliance Cockpit</h1>
+          </div>
+          <div class="topbar-actions">
+            <div class="language-selector" role="group" aria-label="Sprache auswählen" data-i18n-aria-label="aria.language">
+              <button type="button" data-language="de" aria-pressed="true">DE</button>
+              <button type="button" data-language="en" aria-pressed="false">EN</button>
+              <button type="button" data-language="am" aria-pressed="false">አማ</button>
+            </div>
+            <a
+              class="header-document-link"
+              href="docs/SCTracker-Mobile-Testcheckliste.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <span data-i18n="header.mobileTest">Mobile testen</span>
+              <strong data-i18n="header.pdfChecklist">PDF-Checkliste</strong>
+            </a>
+            <span class="deadline">
+              <small data-i18n="header.applicationStart">Anwendungsstart</small>
+              <strong data-i18n="header.date">30. Dez. 2026</strong>
+            </span>
+            <button class="avatar" aria-label="Benutzermenü" data-i18n-aria-label="aria.userMenu">AJ</button>
+          </div>
+        </header>
+
+        <section class="view active" id="overview" data-title-key="title.overview">
+          <div class="hero">
+            <div>
+              <p class="eyebrow light" data-i18n="overview.activeShipment">AKTIVE KAFFEE-SENDUNG</p>
+              <h2 data-i18n="overview.import">Import 2026-0142</h2>
+              <p data-i18n="overview.route">Gewaschener Arabica · Jimma, Äthiopien → Hamburg, Deutschland</p>
+              <div class="hero-meta">
+                <span>18.500 kg</span>
+                <span data-i18n="overview.sourceLots">3 Herkunftslots</span>
+                <span>ET-JIM-2026</span>
+              </div>
+            </div>
+            <div class="score-ring" aria-label="Vollständigkeit 78 Prozent" data-i18n-aria-label="aria.completion">
+              <strong id="completion-score">78%</strong>
+              <span data-i18n="overview.complete">vollständig</span>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="overview.suppliersReady">Lieferanten bereit</span>
+              <strong>8 / 10</strong>
+              <small class="positive" data-i18n="overview.thisWeek">+2 diese Woche</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="overview.validatedPlots">Validierte Parzellen</span>
+              <strong>126</strong>
+              <small data-i18n="overview.corrections">7 benötigen Korrektur</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="overview.openReviews">Offene Reviews</span>
+              <strong>4</strong>
+              <small class="warning" data-i18n="overview.highPriority">2 mit hoher Priorität</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="overview.ddsReadiness">DDS-Bereitschaft</span>
+              <strong>72%</strong>
+              <small data-i18n="overview.missingFields">3 Pflichtangaben fehlen</small>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <article class="panel wide">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow" data-i18n="overview.lineageEyebrow">PRODUKTHERKUNFT</p>
+                  <h3 data-i18n="overview.lineageTitle">Vom Plot zur Sendung</h3>
+                </div>
+                <span class="badge neutral" data-i18n="overview.balanced">18.500 kg bilanziert</span>
+              </div>
+              <div class="lineage" id="lineage"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow" data-i18n="overview.nextSteps">NÄCHSTE SCHRITTE</p>
+                  <h3 data-i18n="overview.worklist">Arbeitsliste</h3>
+                </div>
+                <span class="count">4</span>
+              </div>
+              <ul class="task-list">
+                <li>
+                  <span class="task-priority high"></span>
+                  <div>
+                    <strong data-i18n="task.fixPolygon">Polygon korrigieren</strong>
+                    <small data-i18n="task.selfIntersection">Plot ET-JIM-044 · Selbstüberschneidung</small>
+                  </div>
+                </li>
+                <li>
+                  <span class="task-priority medium"></span>
+                  <div>
+                    <strong data-i18n="task.checkLegality">Legalitätsnachweis prüfen</strong>
+                    <small data-i18n="task.documentExpires">Kaffa Cooperative · Dokument läuft ab</small>
+                  </div>
+                </li>
+                <li>
+                  <span class="task-priority medium"></span>
+                  <div>
+                    <strong data-i18n="task.resolveQuantity">Mengenabweichung klären</strong>
+                    <small data-i18n="task.quantityDifference">Batch B-2026-091 · 120 kg Differenz</small>
+                  </div>
+                </li>
+                <li>
+                  <span class="task-priority low"></span>
+                  <div>
+                    <strong data-i18n="task.approveDraft">DDS-Entwurf freigeben</strong>
+                    <small data-i18n="task.afterReviews">Nach Abschluss der offenen Reviews</small>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="suppliers" data-title-key="title.suppliers">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="supplier.eyebrow">LIEFERANTENERFASSUNG</p>
+              <h2 data-i18n="supplier.title">Kaffee-Lieferanten</h2>
+              <p data-i18n="supplier.description">Datenerhebung und Freigabestatus der aktuellen Beschaffungspartner.</p>
+            </div>
+            <button class="primary-button" data-toast-key="toast.invite">
+              <span data-i18n="supplier.invite">+ Lieferant einladen</span>
+            </button>
+          </div>
+          <div class="panel table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="supplier.organization">Organisation</th>
+                  <th data-i18n="supplier.country">Land</th>
+                  <th data-i18n="supplier.producers">Produzenten</th>
+                  <th data-i18n="supplier.plots">Parzellen</th>
+                  <th data-i18n="supplier.dataStatus">Datenstatus</th>
+                  <th data-i18n="supplier.lastActivity">Letzte Aktivität</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Kaffa Cooperative Union</strong><small>SUP-00018</small></td>
+                  <td data-i18n="common.ethiopia">Äthiopien</td>
+                  <td>94</td>
+                  <td>112</td>
+                  <td><span class="badge success" data-i18n="status.complete">Vollständig</span></td>
+                  <td data-i18n="time.today">Heute, 03:18</td>
+                </tr>
+                <tr>
+                  <td><strong>Jimma Highland Export</strong><small>SUP-00023</small></td>
+                  <td data-i18n="common.ethiopia">Äthiopien</td>
+                  <td>11</td>
+                  <td>14</td>
+                  <td><span class="badge warning" data-i18n="status.correction">Korrektur</span></td>
+                  <td data-i18n="time.yesterday">Gestern, 16:42</td>
+                </tr>
+                <tr>
+                  <td><strong>Sidama Coffee Farmers</strong><small>SUP-00031</small></td>
+                  <td data-i18n="common.ethiopia">Äthiopien</td>
+                  <td>38</td>
+                  <td>47</td>
+                  <td><span class="badge neutral" data-i18n="status.invited">Eingeladen</span></td>
+                  <td data-i18n="time.sep8">8. Sep. 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="plots" data-title-key="title.plots">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="plot.eyebrow">GEODATENPRÜFUNG</p>
+              <h2 data-i18n="plot.title">Kaffee-Parzellen</h2>
+              <p data-i18n="plot.description">Versionierte Produktionsflächen mit deterministischen Qualitätsprüfungen.</p>
+            </div>
+            <button class="primary-button" data-toast-key="toast.import">
+              <span data-i18n="plot.import">GeoJSON importieren</span>
+            </button>
+          </div>
+          <div class="map-layout">
+            <article class="map-card">
+              <div class="map-placeholder" role="img" aria-label="Abstrakte Karte der Kaffee-Parzellen" data-i18n-aria-label="aria.map">
+                <span class="terrain terrain-one"></span>
+                <span class="terrain terrain-two"></span>
+                <span class="plot plot-one">42</span>
+                <span class="plot plot-two">43</span>
+                <span class="plot plot-three alert">44</span>
+                <div class="map-key"><i></i> Jimma · Oromia</div>
+              </div>
+            </article>
+            <article class="panel">
+              <p class="eyebrow" data-i18n="plot.validationResult">VALIDIERUNGSERGEBNIS</p>
+              <h3>Plot ET-JIM-044</h3>
+              <div class="validation-list">
+                <div><span class="check ok">✓</span><span data-i18n="plot.country">Ländergrenze: Äthiopien</span></div>
+                <div><span class="check ok">✓</span><span data-i18n="plot.area">Fläche plausibel: 2,7 ha</span></div>
+                <div><span class="check fail">!</span><span data-i18n="plot.selfIntersection">Polygon selbstüberschneidend</span></div>
+                <div><span class="check ok">✓</span><span data-i18n="plot.noDuplicate">Kein Duplikat erkannt</span></div>
+                <div><span class="check pending">·</span><span data-i18n="plot.eoPending">EO-Analyse ausstehend</span></div>
+              </div>
+              <button class="secondary-button" data-toast-key="toast.correction">
+                <span data-i18n="plot.requestCorrection">Korrektur anfordern</span>
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="shipments" data-title-key="title.shipments">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="shipment.eyebrow">LIEFERKETTENHERKUNFT</p>
+              <h2 data-i18n="shipment.title">Kaffee-Sendungen</h2>
+              <p data-i18n="shipment.description">Mengenbasierte Herkunftszuordnung über Lots, Batches und Transformationen.</p>
+            </div>
+          </div>
+          <div class="panel table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="shipment.shipment">Sendung</th>
+                  <th data-i18n="shipment.product">Produkt</th>
+                  <th data-i18n="shipment.quantity">Menge</th>
+                  <th data-i18n="shipment.origin">Herkunft</th>
+                  <th data-i18n="shipment.balance">Bilanz</th>
+                  <th data-i18n="shipment.case">EUDR-Fall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>IMP-2026-0142</strong><small data-i18n="shipment.eta">Ankunft Hamburg 18.12.2026</small></td>
+                  <td data-i18n="product.washed">Gewaschener Arabica</td>
+                  <td>18.500 kg</td>
+                  <td>Jimma, ET</td>
+                  <td><span class="badge success" data-i18n="status.balanced">Ausgeglichen</span></td>
+                  <td><span class="badge warning" data-i18n="status.inReview">In Prüfung</span></td>
+                </tr>
+                <tr>
+                  <td><strong>IMP-2026-0137</strong><small data-i18n="shipment.arrived">Eingetroffen 2.12.2026</small></td>
+                  <td data-i18n="product.natural">Natural Arabica</td>
+                  <td>12.800 kg</td>
+                  <td>Sidama, ET</td>
+                  <td><span class="badge success" data-i18n="status.balanced">Ausgeglichen</span></td>
+                  <td><span class="badge success" data-i18n="status.ready">Bereit</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="risk" data-title-key="title.risk">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="risk.eyebrow">NACHVOLLZIEHBARE PRÜFUNG</p>
+              <h2 data-i18n="risk.title">Risiko- und Evidenzprüfung</h2>
+              <p data-i18n="risk.description">Getrennte Signale statt einer undurchsichtigen Gesamtampel.</p>
+            </div>
+          </div>
+          <div class="risk-grid" id="risk-grid"></div>
+          <article class="panel evidence-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">EVIDENCE PACK</p>
+                <h3>IMP-2026-0142</h3>
+              </div>
+              <button class="secondary-button" data-toast-key="toast.manifest">
+                <span data-i18n="risk.viewManifest">Manifest ansehen</span>
+              </button>
+            </div>
+            <div class="evidence-progress">
+              <div><span style="width: 82%"></span></div>
+              <strong data-i18n="risk.progress">14 von 17 Nachweisen vollständig</strong>
+            </div>
+            <p class="muted" data-i18n="risk.packDescription">Enthält Plot-Versionen, Dokument-Hashes, Mengenherkunft, Analyse-IDs, Regelversionen und Review-Entscheidungen.</p>
+          </article>
+        </section>
+
+        <section class="view" id="dds" data-title-key="title.dds">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="dds.eyebrow">EU-INFORMATIONSSYSTEM</p>
+              <h2 data-i18n="dds.title">DDS-Vorbereitung</h2>
+              <p data-i18n="dds.description">Interner Entwurf für den isolierten V3-Adapter. Keine Live-Einreichung.</p>
+            </div>
+          </div>
+          <div class="dds-layout">
+            <article class="panel">
+              <h3 data-i18n="dds.status">Erklärungsstatus</h3>
+              <div class="stepper">
+                <div class="step complete"><span>1</span><div><strong data-i18n="dds.product">Produkt</strong><small data-i18n="dds.coffeeCode">Kaffee · CN 0901</small></div></div>
+                <div class="step complete"><span>2</span><div><strong data-i18n="dds.origin">Herkunft</strong><small data-i18n="dds.originDetail">3 Lots · 126 Plot-Versionen</small></div></div>
+                <div class="step active"><span>3</span><div><strong data-i18n="dds.riskReview">Risikoprüfung</strong><small data-i18n="dds.openEvidence">3 offene Evidenzen</small></div></div>
+                <div class="step"><span>4</span><div><strong data-i18n="dds.approval">Freigabe</strong><small data-i18n="dds.reviewer">Compliance-Prüfer</small></div></div>
+                <div class="step"><span>5</span><div><strong data-i18n="dds.submission">Einreichung</strong><small data-i18n="dds.adapter">EU-V3-Adapter</small></div></div>
+              </div>
+            </article>
+            <article class="panel">
+              <h3 data-i18n="dds.readiness">Bereitschaft</h3>
+              <dl class="readiness-list">
+                <div><dt data-i18n="dds.requiredFields">Pflichtfelder</dt><dd>31 / 34</dd></div>
+                <div><dt data-i18n="dds.geolocations">Geolokationen</dt><dd>126 / 126</dd></div>
+                <div><dt data-i18n="dds.massBalance">Mengenbilanz</dt><dd data-i18n="status.balanced">Ausgeglichen</dd></div>
+                <div><dt data-i18n="dds.review">Review</dt><dd data-i18n="dds.open">Offen</dd></div>
+                <div><dt data-i18n="dds.euMode">EU-Modus</dt><dd data-i18n="dds.acceptance">Acceptance</dd></div>
+              </dl>
+              <button class="primary-button full" disabled data-i18n="dds.locked">Einreichung noch gesperrt</button>
+              <small class="form-hint" data-i18n="dds.lockReason">Offene Reviews verhindern eine versehentliche Einreichung.</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="guide" data-title-key="title.guide">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow" data-i18n="guide.eyebrow">HILFEBEREICH</p>
+              <h2 data-i18n="guide.title">Gebrauchsanweisung</h2>
+              <p data-i18n="guide.description">Die vollständige Anleitung liegt in drei Sprachen als PDF und Quelldokument vor.</p>
+            </div>
+          </div>
+          <div class="language-grid">
+            <a class="language-card" href="docs/user-guide-de.md">
+              <span>DE</span>
+              <strong data-i18n="guide.german">Deutsch</strong>
+              <small data-i18n="guide.open">Gebrauchsanweisung öffnen</small>
+            </a>
+            <a class="language-card" href="docs/user-guide-en.md">
+              <span>EN</span>
+              <strong data-i18n="guide.english">English</strong>
+              <small data-i18n="guide.open">Gebrauchsanweisung öffnen</small>
+            </a>
+            <a class="language-card" href="docs/user-guide-am.md">
+              <span>አማ</span>
+              <strong data-i18n="guide.amharic">አማርኛ</strong>
+              <small data-i18n="guide.open">Gebrauchsanweisung öffnen</small>
+            </a>
+          </div>
+          <article class="panel guide-download">
+            <div>
+              <p class="eyebrow">PDF</p>
+              <h3 data-i18n="guide.manual">Dreisprachiges Handbuch</h3>
+              <p data-i18n="guide.manualDescription">Deutsch, Englisch und Amharisch in einem druckbaren Dokument.</p>
+            </div>
+            <a class="primary-button" href="docs/SCTracker-Gebrauchsanweisung-DE-EN-AM.pdf">
+              <span data-i18n="guide.openPdf">PDF öffnen</span>
+            </a>
+          </article>
+          <article class="panel guide-download">
+            <div>
+              <p class="eyebrow" data-i18n="guide.cloudEyebrow">CLOUD-ARCHITEKTUR</p>
+              <h3 data-i18n="guide.cloudTitle">Cloud-Services für SCTracker</h3>
+              <p data-i18n="guide.cloudDescription">Empfohlener Pilot-Stack, Enterprise-Alternativen, Sicherheit und Kostenrahmen.</p>
+            </div>
+            <a class="primary-button" href="docs/SCTracker-Cloud-Services-Kaffee-EUDR.pdf">
+              <span data-i18n="guide.downloadPdf">PDF herunterladen</span>
+            </a>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js?v=1"></script>
+  </body>
+</html>

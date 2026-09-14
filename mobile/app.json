@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "SCTracker Coffee",
+    "slug": "sctracker-coffee",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "description": "Mobile coffee plot and supplier field application for SCTracker.",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sctracker.coffee",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "SCTracker uses your location to capture coffee plot coordinates while you are on site."
+      }
+    },
+    "android": {
+      "package": "com.sctracker.coffee",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#14251D",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-sharing",
+      "expo-secure-store"
+    ]
+  }
+}
